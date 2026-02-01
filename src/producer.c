@@ -2,13 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 
 ssize_t write_all(int fd, const void* buf, size_t n);
 
 int producer_run(int out_fd, uint32_t producer_id, const config_t* cfg) {
-    // Build one reusable payload
-    char* payload = (char*)malloc(cfg->msg_size);
-    if (!payload) return 1;
+    // total bytes per message written in ONE call (header + payload)
+    size_t msg_bytes = sizeof(msg_hdr_t) + cfg->msg_size;
+
+    unsigned char* msgbuf = (unsigned char*)malloc(msg_bytes);
+    if (!msgbuf) return 1;
+
+    // payload starts right after header
+    unsigned char* payload = msgbuf + sizeof(msg_hdr_t);
     memset(payload, 'A' + (producer_id % 26), cfg->msg_size);
 
     msg_hdr_t hdr;
@@ -19,19 +25,18 @@ int producer_run(int out_fd, uint32_t producer_id, const config_t* cfg) {
     for (uint32_t i = 0; i < cfg->messages_per_producer; i++) {
         hdr.seq = i;
 
-        if (write_all(out_fd, &hdr, sizeof(hdr)) < 0) {
-            perror("producer write header");
-            free(payload);
+        // copy header into the front of msgbuf
+        memcpy(msgbuf, &hdr, sizeof(hdr));
+
+        // atomic message write (header+payload together)
+        if (write_all(out_fd, msgbuf, msg_bytes) < 0) {
+            perror("producer write message");
+            free(msgbuf);
             return 2;
-        }
-        if (write_all(out_fd, payload, cfg->msg_size) < 0) {
-            perror("producer write payload");
-            free(payload);
-            return 3;
         }
     }
 
-    free(payload);
+    free(msgbuf);
     return 0;
 }
 

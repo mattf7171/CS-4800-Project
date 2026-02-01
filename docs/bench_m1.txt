@@ -1,0 +1,16 @@
+>>> --producers 1 --consumers 1 --messages 20000 --msg-size 64
+run: producers=1 consumers=1 messages_per_producer=20000 msg_size=64
+timing: 0.005 sec | approx 3900231 msgs/sec
+
+>>> --producers 2 --consumers 1 --messages 20000 --msg-size 64
+run: producers=2 consumers=1 messages_per_producer=20000 msg_size=64
+timing: 0.012 sec | approx 3358999 msgs/sec
+
+>>> --producers 4 --consumers 1 --messages 20000 --msg-size 64
+run: producers=4 consumers=1 messages_per_producer=20000 msg_size=64
+timing: 0.023 sec | approx 3431681 msgs/sec
+
+>>> --producers 4 --consumers 2 --messages 20000 --msg-size 64
+run: producers=4 consumers=2 messages_per_producer=20000 msg_size=64
+timing: 0.030 sec | approx 2666150 msgs/sec
+
