@@ -1,18 +1,24 @@
 CC=gcc
 CFLAGS=-O2 -Wall -Wextra -Iinclude
-LDFLAGS=
+LDFLAGS=-pthread
 
-BIN=build/ipc_pipes
-SRC=src/main.c src/producer.c src/consumer.c src/util.c
+BIN_PIPES=build/ipc_pipes
+BIN_SHM=build/ipc_shm_sem
 
-all: $(BIN)
+SRC_PIPES=src/main.c src/producer.c src/consumer.c src/util.c
+SRC_SHM=src/shm_sem_main.c
 
-$(BIN): $(SRC)
+all: $(BIN_PIPES) $(BIN_SHM)
+
+$(BIN_PIPES): $(SRC_PIPES)
 	@mkdir -p build
-	$(CC) $(CFLAGS) -o $@ $(SRC) $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $@ $(SRC_PIPES) $(LDFLAGS)
+
+$(BIN_SHM): $(SRC_SHM)
+	@mkdir -p build
+	$(CC) $(CFLAGS) -o $@ $(SRC_SHM) $(LDFLAGS)
 
 clean:
 	rm -rf build
 
 .PHONY: all clean
-
