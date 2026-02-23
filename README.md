@@ -124,4 +124,15 @@ docs/design_notes.md contains milestone notes, including the pipe framing issue 
 
 Roadmap (Next Milestones)
 
-Milestone 2: Implement bounded buffer using POSIX shared memory + semaphores, with strong correctness testing
+---
+
+## Milestone 2: Shared Memory + Semaphores (bounded buffer)
+
+A second implementation (`ipc_shm_sem`) was added using:
+- POSIX shared memory (`shm_open`, `mmap`)
+- process-shared semaphores (`sem_init` with `pshared=1`)
+- bounded ring buffer with `empty`, `full`, and `mutex` semaphores
+
+### Build
+```bash
+make
