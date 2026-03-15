@@ -1,0 +1,12 @@
+>>> pipes ./build/ipc_pipes --producers 4 --consumers 1 --messages 20000 --msg-size 64
+run: producers=4 consumers=1 messages_per_producer=20000 msg_size=64
+timing: 0.027 sec | approx 2926255 msgs/sec
+
+>>> shm_sem ./build/ipc_shm_sem --producers 4 --consumers 1 --messages 20000 --msg-size 64 --slots 64
+run(shm_sem): producers=4 consumers=1 messages_per_producer=20000 msg_size=64 slots=64
+timing: 0.061 sec | approx 1310238 msgs/sec
+
+>>> mq ./build/ipc_mq --producers 4 --consumers 1 --messages 20000 --msg-size 64 --maxmsg 10
+run(mq): producers=4 consumers=1 messages_per_producer=20000 msg_size=64 maxmsg=10
+timing: 0.050 sec | approx 1603692 msgs/sec
+
