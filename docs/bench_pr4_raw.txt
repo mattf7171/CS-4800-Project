@@ -1,0 +1,180 @@
+>>> [pipes] P=1 C=1 M=200000 S=64 extra=na
+CMD: ./build/ipc_pipes --producers 1 --consumers 1 --messages 200000 --msg-size 64
+run: producers=1 consumers=1 messages_per_producer=200000 msg_size=64
+timing: 0.045 sec | approx 4427450 msgs/sec
+
+>>> [shm_sem] P=1 C=1 M=200000 S=64 extra=slots=64
+CMD: ./build/ipc_shm_sem --producers 1 --consumers 1 --messages 200000 --msg-size 64 --slots 64
+run(shm_sem): producers=1 consumers=1 messages_per_producer=200000 msg_size=64 slots=64
+timing: 0.070 sec | approx 2855198 msgs/sec
+
+>>> [mq] P=1 C=1 M=200000 S=64 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 1 --consumers 1 --messages 200000 --msg-size 64 --maxmsg 10
+run(mq): producers=1 consumers=1 messages_per_producer=200000 msg_size=64 maxmsg=10
+timing: 0.062 sec | approx 3245858 msgs/sec
+
+>>> [pipes] P=1 C=2 M=200000 S=64 extra=na
+CMD: ./build/ipc_pipes --producers 1 --consumers 2 --messages 200000 --msg-size 64
+run: producers=1 consumers=2 messages_per_producer=200000 msg_size=64
+timing: 0.065 sec | approx 3077131 msgs/sec
+
+>>> [shm_sem] P=1 C=2 M=200000 S=64 extra=slots=64
+CMD: ./build/ipc_shm_sem --producers 1 --consumers 2 --messages 200000 --msg-size 64 --slots 64
+run(shm_sem): producers=1 consumers=2 messages_per_producer=200000 msg_size=64 slots=64
+timing: 0.061 sec | approx 3301350 msgs/sec
+
+>>> [mq] P=1 C=2 M=200000 S=64 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 1 --consumers 2 --messages 200000 --msg-size 64 --maxmsg 10
+run(mq): producers=1 consumers=2 messages_per_producer=200000 msg_size=64 maxmsg=10
+timing: 0.080 sec | approx 2490389 msgs/sec
+
+>>> [pipes] P=2 C=1 M=100000 S=64 extra=na
+CMD: ./build/ipc_pipes --producers 2 --consumers 1 --messages 100000 --msg-size 64
+run: producers=2 consumers=1 messages_per_producer=100000 msg_size=64
+timing: 0.034 sec | approx 5868918 msgs/sec
+
+>>> [shm_sem] P=2 C=1 M=100000 S=64 extra=slots=64
+CMD: ./build/ipc_shm_sem --producers 2 --consumers 1 --messages 100000 --msg-size 64 --slots 64
+run(shm_sem): producers=2 consumers=1 messages_per_producer=100000 msg_size=64 slots=64
+timing: 0.062 sec | approx 3210402 msgs/sec
+
+>>> [mq] P=2 C=1 M=100000 S=64 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 2 --consumers 1 --messages 100000 --msg-size 64 --maxmsg 10
+run(mq): producers=2 consumers=1 messages_per_producer=100000 msg_size=64 maxmsg=10
+timing: 0.067 sec | approx 2991153 msgs/sec
+
+>>> [pipes] P=2 C=2 M=100000 S=64 extra=na
+CMD: ./build/ipc_pipes --producers 2 --consumers 2 --messages 100000 --msg-size 64
+run: producers=2 consumers=2 messages_per_producer=100000 msg_size=64
+timing: 0.058 sec | approx 3444167 msgs/sec
+
+>>> [shm_sem] P=2 C=2 M=100000 S=64 extra=slots=64
+CMD: ./build/ipc_shm_sem --producers 2 --consumers 2 --messages 100000 --msg-size 64 --slots 64
+run(shm_sem): producers=2 consumers=2 messages_per_producer=100000 msg_size=64 slots=64
+timing: 0.067 sec | approx 2978664 msgs/sec
+
+>>> [mq] P=2 C=2 M=100000 S=64 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 2 --consumers 2 --messages 100000 --msg-size 64 --maxmsg 10
+run(mq): producers=2 consumers=2 messages_per_producer=100000 msg_size=64 maxmsg=10
+timing: 0.070 sec | approx 2854550 msgs/sec
+
+>>> [pipes] P=4 C=1 M=50000 S=64 extra=na
+CMD: ./build/ipc_pipes --producers 4 --consumers 1 --messages 50000 --msg-size 64
+run: producers=4 consumers=1 messages_per_producer=50000 msg_size=64
+timing: 0.043 sec | approx 4682046 msgs/sec
+
+>>> [shm_sem] P=4 C=1 M=50000 S=64 extra=slots=128
+CMD: ./build/ipc_shm_sem --producers 4 --consumers 1 --messages 50000 --msg-size 64 --slots 128
+run(shm_sem): producers=4 consumers=1 messages_per_producer=50000 msg_size=64 slots=128
+timing: 0.098 sec | approx 2046130 msgs/sec
+
+>>> [mq] P=4 C=1 M=50000 S=64 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 4 --consumers 1 --messages 50000 --msg-size 64 --maxmsg 10
+run(mq): producers=4 consumers=1 messages_per_producer=50000 msg_size=64 maxmsg=10
+timing: 0.096 sec | approx 2088901 msgs/sec
+
+>>> [pipes] P=4 C=2 M=50000 S=64 extra=na
+CMD: ./build/ipc_pipes --producers 4 --consumers 2 --messages 50000 --msg-size 64
+run: producers=4 consumers=2 messages_per_producer=50000 msg_size=64
+timing: 0.054 sec | approx 3701383 msgs/sec
+
+>>> [shm_sem] P=4 C=2 M=50000 S=64 extra=slots=128
+CMD: ./build/ipc_shm_sem --producers 4 --consumers 2 --messages 50000 --msg-size 64 --slots 128
+run(shm_sem): producers=4 consumers=2 messages_per_producer=50000 msg_size=64 slots=128
+timing: 0.074 sec | approx 2688599 msgs/sec
+
+>>> [mq] P=4 C=2 M=50000 S=64 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 4 --consumers 2 --messages 50000 --msg-size 64 --maxmsg 10
+run(mq): producers=4 consumers=2 messages_per_producer=50000 msg_size=64 maxmsg=10
+timing: 0.064 sec | approx 3142588 msgs/sec
+
+>>> [pipes] P=1 C=1 M=200000 S=256 extra=na
+CMD: ./build/ipc_pipes --producers 1 --consumers 1 --messages 200000 --msg-size 256
+run: producers=1 consumers=1 messages_per_producer=200000 msg_size=256
+timing: 0.033 sec | approx 6031012 msgs/sec
+
+>>> [shm_sem] P=1 C=1 M=200000 S=256 extra=slots=64
+CMD: ./build/ipc_shm_sem --producers 1 --consumers 1 --messages 200000 --msg-size 256 --slots 64
+run(shm_sem): producers=1 consumers=1 messages_per_producer=200000 msg_size=256 slots=64
+timing: 0.047 sec | approx 4258452 msgs/sec
+
+>>> [mq] P=1 C=1 M=200000 S=256 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 1 --consumers 1 --messages 200000 --msg-size 256 --maxmsg 10
+run(mq): producers=1 consumers=1 messages_per_producer=200000 msg_size=256 maxmsg=10
+timing: 0.048 sec | approx 4153365 msgs/sec
+
+>>> [pipes] P=1 C=2 M=200000 S=256 extra=na
+CMD: ./build/ipc_pipes --producers 1 --consumers 2 --messages 200000 --msg-size 256
+run: producers=1 consumers=2 messages_per_producer=200000 msg_size=256
+timing: 0.056 sec | approx 3582173 msgs/sec
+
+>>> [shm_sem] P=1 C=2 M=200000 S=256 extra=slots=64
+CMD: ./build/ipc_shm_sem --producers 1 --consumers 2 --messages 200000 --msg-size 256 --slots 64
+run(shm_sem): producers=1 consumers=2 messages_per_producer=200000 msg_size=256 slots=64
+timing: 0.059 sec | approx 3399591 msgs/sec
+
+>>> [mq] P=1 C=2 M=200000 S=256 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 1 --consumers 2 --messages 200000 --msg-size 256 --maxmsg 10
+run(mq): producers=1 consumers=2 messages_per_producer=200000 msg_size=256 maxmsg=10
+timing: 0.069 sec | approx 2916264 msgs/sec
+
+>>> [pipes] P=2 C=1 M=100000 S=256 extra=na
+CMD: ./build/ipc_pipes --producers 2 --consumers 1 --messages 100000 --msg-size 256
+run: producers=2 consumers=1 messages_per_producer=100000 msg_size=256
+timing: 0.044 sec | approx 4592195 msgs/sec
+
+>>> [shm_sem] P=2 C=1 M=100000 S=256 extra=slots=64
+CMD: ./build/ipc_shm_sem --producers 2 --consumers 1 --messages 100000 --msg-size 256 --slots 64
+run(shm_sem): producers=2 consumers=1 messages_per_producer=100000 msg_size=256 slots=64
+timing: 0.058 sec | approx 3442772 msgs/sec
+
+>>> [mq] P=2 C=1 M=100000 S=256 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 2 --consumers 1 --messages 100000 --msg-size 256 --maxmsg 10
+run(mq): producers=2 consumers=1 messages_per_producer=100000 msg_size=256 maxmsg=10
+timing: 0.063 sec | approx 3177863 msgs/sec
+
+>>> [pipes] P=2 C=2 M=100000 S=256 extra=na
+CMD: ./build/ipc_pipes --producers 2 --consumers 2 --messages 100000 --msg-size 256
+run: producers=2 consumers=2 messages_per_producer=100000 msg_size=256
+timing: 0.056 sec | approx 3542967 msgs/sec
+
+>>> [shm_sem] P=2 C=2 M=100000 S=256 extra=slots=64
+CMD: ./build/ipc_shm_sem --producers 2 --consumers 2 --messages 100000 --msg-size 256 --slots 64
+run(shm_sem): producers=2 consumers=2 messages_per_producer=100000 msg_size=256 slots=64
+timing: 0.058 sec | approx 3445417 msgs/sec
+
+>>> [mq] P=2 C=2 M=100000 S=256 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 2 --consumers 2 --messages 100000 --msg-size 256 --maxmsg 10
+run(mq): producers=2 consumers=2 messages_per_producer=100000 msg_size=256 maxmsg=10
+timing: 0.062 sec | approx 3208687 msgs/sec
+
+>>> [pipes] P=4 C=1 M=50000 S=256 extra=na
+CMD: ./build/ipc_pipes --producers 4 --consumers 1 --messages 50000 --msg-size 256
+run: producers=4 consumers=1 messages_per_producer=50000 msg_size=256
+timing: 0.045 sec | approx 4451749 msgs/sec
+
+>>> [shm_sem] P=4 C=1 M=50000 S=256 extra=slots=128
+CMD: ./build/ipc_shm_sem --producers 4 --consumers 1 --messages 50000 --msg-size 256 --slots 128
+run(shm_sem): producers=4 consumers=1 messages_per_producer=50000 msg_size=256 slots=128
+timing: 0.101 sec | approx 1984279 msgs/sec
+
+>>> [mq] P=4 C=1 M=50000 S=256 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 4 --consumers 1 --messages 50000 --msg-size 256 --maxmsg 10
+run(mq): producers=4 consumers=1 messages_per_producer=50000 msg_size=256 maxmsg=10
+timing: 0.086 sec | approx 2314155 msgs/sec
+
+>>> [pipes] P=4 C=2 M=50000 S=256 extra=na
+CMD: ./build/ipc_pipes --producers 4 --consumers 2 --messages 50000 --msg-size 256
+run: producers=4 consumers=2 messages_per_producer=50000 msg_size=256
+timing: 0.058 sec | approx 3454311 msgs/sec
+
+>>> [shm_sem] P=4 C=2 M=50000 S=256 extra=slots=128
+CMD: ./build/ipc_shm_sem --producers 4 --consumers 2 --messages 50000 --msg-size 256 --slots 128
+run(shm_sem): producers=4 consumers=2 messages_per_producer=50000 msg_size=256 slots=128
+timing: 0.073 sec | approx 2728065 msgs/sec
+
+>>> [mq] P=4 C=2 M=50000 S=256 extra=maxmsg=10
+CMD: ./build/ipc_mq --producers 4 --consumers 2 --messages 50000 --msg-size 256 --maxmsg 10
+run(mq): producers=4 consumers=2 messages_per_producer=50000 msg_size=256 maxmsg=10
+timing: 0.068 sec | approx 2958284 msgs/sec
+
